@@ -1,2 +1,7 @@
 /data/pressure-data.xlsx
-/__pycache__
+
+
+/__pycache__/*
+
+
+*.pyc 
