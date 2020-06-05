@@ -1,1 +1,2 @@
-./data/pressure-data.xlsx
+/data/pressure-data.xlsx
+/__pycache__
