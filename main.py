@@ -1,4 +1,4 @@
-from data_utils import load_data, introduce_nan, save_inference
+from utils import load_data, introduce_nan, save_inference
 from imputer.models import mice_impute, knn_impute, gain_impute
 from evaluate import evaluate
 
@@ -7,12 +7,13 @@ from evaluate import evaluate
 #########CONFIG#########
 ########################
 DATASET_PATH = './data/pressure-data.xlsx' #Dataset to Impute
-MODEL = 'GAIN' #Specify the Imputation Model to Impute
+SHEET_NAME = 'back'
+MODEL = 'KNN' #Specify the Imputation Model to Impute
 K = 3 #If the model is KNN, sepicify the K value
 SAVE_PATH = './results/'
 NUM_ROWS = 1000 #Num of Rows ie. Time Series
 
-actual_df = load_data(DATASET_PATH, n_rows=1000)
+actual_df = load_data(data_path=DATASET_PATH, sheet_name=SHEET_NAME, n_rows=1000)
 nan_df = introduce_nan(actual_df)
 if MODEL=='KNN':
     imputed_df = knn_impute(df=nan_df, k=K)

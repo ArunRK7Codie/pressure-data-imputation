@@ -5,9 +5,9 @@ import pandas as pd #Handles Python DataFrame (Special Data Structure Object)
 import numpy as np #For mathematical operations
 
 
-data_path = './data/pressure-data.xlsx'
+def_path = './data/pressure-data.xlsx'
 
-def load_data(sheet_name, n_rows=1000)->pd.DataFrame():
+def load_data(sheet_name, data_path=def_path, n_rows=1000)->pd.DataFrame():
     df = pd.read_excel(data_path, header=None, sheet_name=sheet_name)
     #the tabular data have labels like column names and co-ordinate positions 
     #which are not required for our imputation

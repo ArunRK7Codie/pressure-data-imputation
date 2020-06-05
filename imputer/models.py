@@ -2,6 +2,7 @@ import impyute as impy
 import numpy as np
 import pandas as pd
 from .gain import gain
+from tqdm import tqdm
 
 
 # Default GAIN Configuations
@@ -13,7 +14,7 @@ iterations=1000
 
 def knn_impute(df,k) -> pd.DataFrame():
     imputed_ls = list() # for storing imputed time series record
-    for i in range(df[0].size): # Iterate through n time series values in df
+    for i in tqdm(range(df[0].size)): # Iterate through n time series values in df
         row_val = df.iloc[i,:] #selects one time series for imputation
         row_np = row_val.values().reshape(10, 5) # reshapes a one dimensional row of values into 2d(10x5) matrix for imputing 
         imputed_row = impy.fast_knn(row_np, k=k).reshape(1,50) #Implements KNN Imputation functions from impyute module
@@ -23,7 +24,7 @@ def knn_impute(df,k) -> pd.DataFrame():
 
 def mice_impute(df) -> pd.DataFrame():
     imputed_ls = list() # for storing imputed time series record
-    for i in range(df[0].size): # Iterate through n time series values in df
+    for i in tqdm(range(df[0].size)): # Iterate through n time series values in df
         row_val = df.iloc[i,:] #selects one time series for imputation
         row_np = row_val.values().reshape(10, 5) # reshapes a one dimensional row of values into 2d(10x5) matrix for imputing 
         imputed_row = impy.mice(row_np).reshape(1,50) #Implements MICE Imputation functions from impyute module
