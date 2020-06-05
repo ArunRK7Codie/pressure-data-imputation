@@ -7,7 +7,7 @@ from sklearn.metrics import r2_score
 def evaluate(actual_df, imputed_df, nan_positions=[3,7,24,18,29,42,47]) -> pd.DataFrame():
     mse_ls = list()
     r_sqr = list()
-    for i in range(actual_df[0].size):
+    for i in range(actual_df[3].size):
         acc_row = actual_df.iloc[i,:].tolist()
         imp_row = imputed_df.iloc[i,:].tolist()
         mse_val = mse(acc_row, imp_row)

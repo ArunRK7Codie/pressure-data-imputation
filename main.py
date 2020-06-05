@@ -7,8 +7,8 @@ from evaluate import evaluate
 #########CONFIG#########
 ########################
 DATASET_PATH = './data/pressure-data.xlsx' #Dataset to Impute
-SHEET_NAME = 'back'
-MODEL = 'KNN' #Specify the Imputation Model to Impute
+SHEET_NAME = 'Back'
+MODEL = 'MICE' #Specify the Imputation Model to Impute
 K = 3 #If the model is KNN, sepicify the K value
 SAVE_PATH = './results/'
 NUM_ROWS = 1000 #Num of Rows ie. Time Series
